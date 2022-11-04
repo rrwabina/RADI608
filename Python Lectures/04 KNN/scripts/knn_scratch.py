@@ -6,7 +6,7 @@ Created on Fri Nov 04 12:46:39 2022
 import numpy as np
 
 class KNN:
-    def __init__(self, k=3):
+    def __init__(self, k = 3):
         self.k = k
         
     def find_distance(self, X_train, X_test):
@@ -36,7 +36,6 @@ class KNN:
         largest = bincount.argmax()
         second_largest = bincount.argsort()[-2:][0]
         
-        #if the first two most common is the same, we take the third most common as the decider
         if bincount[largest] == bincount[second_largest]:
             y_nearest = y[0: self.k+1]  #add one more neighbor
             return np.bincount(y_nearest).argmax(), bincount[largest] / bincount.sum()
