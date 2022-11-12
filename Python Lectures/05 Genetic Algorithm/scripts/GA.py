@@ -6,6 +6,13 @@ def cal_pop_fitness(equation_inputs, pop):
     fitness = numpy.sum(pop*equation_inputs, axis=1)
     return fitness
 
+def cal_fitness(inputs, initial_population):
+    fitness = inputs[0] * (initial_population[:, 0] ** 2) + inputs[1] * (initial_population[:, 1] ** 3) + \
+              inputs[2] * (initial_population[:, 2]) + inputs[3] * (initial_population[:, 3]) + \
+              inputs[4] * (initial_population[:, 4]) + inputs[5] * (initial_population[:, 5])
+    print(f'====================Fitness====================')
+    return fitness
+
 def select_mating_pool(pop, fitness, num_parents):
     # Selecting the best individuals in the current generation as parents for producing the offspring of the next generation.
     parents = numpy.empty((num_parents, pop.shape[1]))
@@ -13,7 +20,6 @@ def select_mating_pool(pop, fitness, num_parents):
         max_fitness_idx = numpy.where(fitness == numpy.max(fitness))
         max_fitness_idx = max_fitness_idx[0][0]
         parents[parent_num, :] = pop[max_fitness_idx, :]
-        fitness[max_fitness_idx] = -99999999999
     return parents
 
 def crossover(parents, offspring_size):
