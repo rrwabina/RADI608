@@ -1,16 +1,9 @@
-import numpy
+import numpy 
 
 def cal_pop_fitness(equation_inputs, pop):
     # Calculating the fitness value of each solution in the current population.
     # The fitness function calulates the sum of products between each input and its corresponding weight.
     fitness = numpy.sum(pop*equation_inputs, axis=1)
-    return fitness
-
-def cal_fitness(inputs, initial_population):
-    fitness = inputs[0] * (initial_population[:, 0] ** 2) + inputs[1] * (initial_population[:, 1] ** 3) + \
-              inputs[2] * (initial_population[:, 2]) + inputs[3] * (initial_population[:, 3]) + \
-              inputs[4] * (initial_population[:, 4]) + inputs[5] * (initial_population[:, 5])
-    print(f'====================Fitness====================')
     return fitness
 
 def select_mating_pool(pop, fitness, num_parents):
@@ -20,9 +13,10 @@ def select_mating_pool(pop, fitness, num_parents):
         max_fitness_idx = numpy.where(fitness == numpy.max(fitness))
         max_fitness_idx = max_fitness_idx[0][0]
         parents[parent_num, :] = pop[max_fitness_idx, :]
+        fitness[max_fitness_idx] = -99999999999
     return parents
 
-def crossover(parents, offspring_size):
+def crossover(parents, offspring_size, crossover_rate = 0.1):
     offspring = numpy.empty(offspring_size)
     # The point at which crossover takes place between two parents. Usually, it is at the center.
     crossover_point = numpy.uint8(offspring_size[1]/2)
@@ -32,10 +26,12 @@ def crossover(parents, offspring_size):
         parent1_idx = k%parents.shape[0]
         # Index of the second parent to mate.
         parent2_idx = (k+1)%parents.shape[0]
+
+        crossover_prob = numpy.random.uniform(0, 0.1, 1)
         # The new offspring will have its first half of its genes taken from the first parent.
         offspring[k, 0:crossover_point] = parents[parent1_idx, 0:crossover_point]
         # The new offspring will have its second half of its genes taken from the second parent.
-        offspring[k, crossover_point:] = parents[parent2_idx, crossover_point:]
+        offspring[k, crossover_point:]  = parents[parent2_idx, crossover_point:]
     return offspring
 
 def mutation(offspring_crossover, num_mutations=1):
