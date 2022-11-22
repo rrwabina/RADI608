@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title> Heart Disease Prediction </title>
+  </head>
+   <body>
+   <h3> Patient Profile <h3>
+   <h5>
+      <form action = "http://localhost:4000/result" method = "POST">
+		<p>Thalassemia</p> 
+				<input type="radio" name="thal" value="normal"> Normal
+				<input type="radio" name="thal" value="fixed defect"> Fixed defect
+				<input type="radio" name="thal" value="reversable defect"> Reversable Defect
+        <p>Chest Pain</p>
+				<input type="radio" name="cp" value="typical angina"> Typical Angina
+				<input type="radio" name="cp" value="atypical angina"> Atypical Angina
+				<input type="radio" name="cp" value="non anginal pain"> Non-Anginal Pain
+				<input type="radio" name="cp" value="asymptomatic"> Asymptomatic
+		<p>Slope</p>
+				<input type="radio" name="slope" value="upsloping"> Upsloping
+				<input type="radio" name="slope" value="flat"> Flat
+				<input type="radio" name="slope" value="downsloping"> Downsloping
+        <p>Exercise induced angina (exang)</p>
+				<input type="radio" name="exang" value=1> Yes
+				<input type="radio" name="exang" value=0> No
+        <p>Number of major vessels (0-3) colored by flourosopy</p>
+				<input type="radio" name="ca" value=0> 0
+				<input type="radio" name="ca" value=1> 1
+				<input type="radio" name="ca" value=2> 2
+				<input type="radio" name="ca" value=3> 3
+		<p><input type = "submit" value = "submit" /></p>
+      </form>
+	<h5>
+   </body>
+</html>
