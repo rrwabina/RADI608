@@ -3,7 +3,7 @@ Data Mining Lecture and Assignment
 
 This repository covers Data Mining and Machine Learning applications to medicine, healthcare, and clinical informatics - covering topics on Supervised, Unsupervised, and Semi-Supervised Learning, and Reinforcement Learning.
 
-### Outline
+### Python Lectures
 0. Preprocessing
 1. Naive Bayes
 2. Decision Trees
@@ -18,3 +18,6 @@ This repository covers Data Mining and Machine Learning applications to medicine
 11. Model Deployment
 12. Machine Learning in Health Care
 13. Model Interpretability - Gradient Class Activation Mapping
+
+### Submitted
+Files submitted as assignment in RADI608 Data Mining and Machine Learning. This folder includes the Jupyter Notebooks and Python files in solving the assignment. 
