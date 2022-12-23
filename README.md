@@ -1,6 +1,8 @@
 # RADI608
 Data Mining Lecture and Assignment
 
+Hi! Welcome!
+
 This repository covers Data Mining and Machine Learning applications to medicine, healthcare, and clinical informatics - covering topics on Supervised, Unsupervised, and Semi-Supervised Learning, and Reinforcement Learning.
 
 ### Python Lectures
